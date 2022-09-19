@@ -1,0 +1,29 @@
+import matplotlib
+import numpy as np
+import seaborn as sns
+
+def color_positions(positions, values=None, representation='spheres', colormap=matplotlib.cm.cool, 
+    constant_color=120,):
+
+    values = np.array(values) - min(values)
+    values = 1. * values / max(values)
+    for index, position in enumerate(positions):
+        color=colormap(values[index])
+
+        colorName = "color_" + str(position)
+        selName = "temp_selection"
+        # Choose/set color
+        cmd.set_color(colorName, color[0:3])
+        # Select the residue
+        cmd.select(selName, 'resi %s' %position)
+        # Show the residue
+        cmd.show(representation, selName)
+        # Color the residue
+        cmd.color(colorName, selName)
+    return None
+
+
+color_positions(positions=list(range(1, 236)), 
+                values=list(range(1, 236)),
+                representation='cartoon',
+                colormap=sns.color_palette("mako_r", as_cmap=True))

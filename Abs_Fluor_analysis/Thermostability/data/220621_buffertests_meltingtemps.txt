@@ -1,0 +1,18 @@
+Experiment: 220621_cgreWT_buffertest_melting  Selected Filter: SYBR Green I / HRM Dye (465-510)
+Include	Color	Pos	Name	Tm1	Tm2	Status
+True	255	A1	1:100 cgeWT:pbs	80.79		
+True	255	A2	1:9:100 cgreWT:elut:pbs	78.74		
+True	255	B1	1:100 cgeWT:pbs	80.83		
+True	255	B2	1:9:100 cgreWT:elut:pbs	78.67		
+True	255	C1	1:100 cgeWT:pbs	80.79		
+True	255	C2	1:9:100 cgreWT:elut:pbs	78.70		
+True	255	D1	1:100 cgeWT:pbs	80.84		
+True	255	D2	1:9:100 cgreWT:elut:pbs	78.74		
+True	255	E1	10:100 cgreWT:pbs	81.13		
+True	255	E2	1:100 cgreWT:elut	71.77		
+True	255	F1	10:100 cgreWT:pbs	81.18		
+True	255	F2	1:100 cgreWT:elut	71.69		
+True	255	G1	10:100 cgreWT:pbs	81.17		
+True	255	G2	1:100 cgreWT:elut	71.66		
+True	255	H1	10:100 cgreWT:pbs	81.17		
+True	255	H2	1:100 cgreWT:elut	71.80		
