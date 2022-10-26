@@ -15,6 +15,7 @@ This repository contains code for the data analysis for Bachelor's Thesis "Mutat
     * [Thermosensitivity assays](#dis_thermo)
 4. [Conclusion](#conclusion)
 5. [Code availability](#code)
+    * [Structure](#structure)
 6. [Usage](#usage)
     * [Software requirements](#Software)
     * [Installation](#installation)
@@ -183,7 +184,7 @@ pretrained parameters and the inverse sigmoid function. See <a href="https://git
 |                            | Abs. corr. coef. | Abs p-value | Fl. corr. coef. | Fl p-value |
 |:--------------------------:|:----------------:|:-----------:|:---------------:|:----------:|
 |           Slopes           |       0.37       |     0.16    |       0.45      |    0.08    |
-| Time at <= half the signal |       0.54       |     0.03    |       0.29      |    0.28    |
+| Time at ≤ half the signal |       0.54       |     0.03    |       0.29      |    0.28    |
 |      Sigmoid function      |       0.37       |     0.16    |       0.29      |    0.28    |
 
 ## Thermosensitivity Assays <a name="dis_thermo"></a>
@@ -211,6 +212,59 @@ stability of the proteins and relate it to the measured mutational robustness.
 
 All functions used for data processing and visualization are stored in `utils.py` files. The main part of data analysis and visualization can be found in corresponding jupyter notebooks.
 
+## Structure <a name="structure"></a>
+The folder [**Abs_Fluor_analysis**](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis) contains 6 subfolders:
+   * [Bradford_protein_concentrations](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Bradford_protein_concentrations) - data and code for determination of the isolated cgreGFPs` concentrations
+   * [Intro_figures](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Intro_figures) - code for generation of Fig. 1
+   * [Mut_robustness](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Mut_robustness) - code for analysis of provided processed FACS-data 
+   * [Pymol](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Pymol) - code for visualization of cgreGFP, Fig. 2
+   * [Thermostability](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Thermostability) - data and code from thermosensitivty assays
+   * [Urea](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Urea) - data and code from urea sensitivity assays
+
+The project has the following structure:
+
+```
+GFP_Robustness
+│   README.md
+│   requirements.txt  
+│
+└───Abs_Fluor_analysis
+│   │
+│   └───Bradford_protein_concentrations
+│       │   220620_cgre_bradford.xlsx
+│       │   bradford_analysis.ipynb
+│   │
+│   └───Intro_figures
+│       │   random_fitness_landscape.ipynb
+│       │   random_fitness_landscape.png
+│   │
+│   └───Mut_robustness
+│       │   Mut_robustness.ipynb
+│       │   amacGFP_cgreGFP_ppluGFP2_final_aminoacid_genotypes_to_brightness.csv
+│       │   utils.py
+│       └───data
+│       │      │   ...
+│   │
+│   └───Pymol
+│       │   cgre.txt
+│       │   cgreGFP.png
+│       │   cgre_GFP.pse
+│   │
+│   └───Thermostability
+│       │   thermostability.ipynb
+│       │   utils.py
+│       └───data
+│       │      │   ...
+│   │
+│   └───Urea
+│       │   corr_results.csv
+│       │   urea_sensitivity.ipynb
+│       │   utils.py
+│       └───data
+│       │      │   ...
+```
+
+
 # Usage <a name="usage"></a>
 
 All code was run on **Python 3.9.7** on **Ubuntu 21.04** and **Ubuntu 22.04**. 
@@ -231,6 +285,15 @@ cd GFP_Robustness
 ```
 
 2. Create virtual environment
+    * Via `venv`
+       * Create virtual environment
+         ```bash
+         python -m venv venv
+         ```
+       * Activate it
+         ```bash
+         source venv/bin/activate
+         ```    
     * Via `virtualenv`
 
        * Install virtualenv if it is not installed.
