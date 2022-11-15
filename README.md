@@ -25,12 +25,12 @@ This repository contains code for the data analysis for Bachelor's Thesis "Mutat
 
 <div style="text-align: justify">
 One of the main goals of biology is to describe how genotype determines the phenotype
-and the evolutionary success, the fitness, of an organism [3, 4, 12]. In 1932, Sewall Wright
-introduced the concept of a fitness landscape, also called adaptive landscape [12, 13]. Fitness
+and the evolutionary success, the fitness, of an organism [3, 4, 13]. In 1932, Sewall Wright
+introduced the concept of a fitness landscape, also called adaptive landscape [13, 14]. Fitness
 landscape relates the genotype to the fitness and can be visualized in a simplified way as a
 3D representation, where the high-dimensional space of all possible genotypes is reduced to
-a 2D plane and the fitness is plotted on the z-axis. Evolution can be interpreted as a ‘walk‘ on the fitness surface
-and the adaptation as a ‘climb‘ on the hill [2, 12].
+a 2D plane and the fitness is plotted on the z-axis. The topography of the fitness landscape displays the interactions between different mutations and their joint effect on the fitness [2, 12, 13]. Evolution can be interpreted as a `walk` on the fitness surface and the adaptation as a `climb` on the hill [2, 13]. A smooth landscape with a single peak implies a lack of epistasis, where the effect of each mutation is fixed and additive [12]. In a rugged fitness landscape, where e.g. multiple fitness peaks are separated by valleys of low fitness, the effect of each mutation depends on the other present mutations, implicating epistatic interactions [12, 13].
+
 </div>
 
 
@@ -56,10 +56,10 @@ function of the studied protein [5]. In this study, green fluorescent proteins (
 investigated. GFPs make up a structurally homologous protein family with weak sequence
 identities, first discovered in coelenterates in 1962 with the unique structure of a β-barrel
 of eleven strands surrounding a central helix (see Fig. 2) [7, 8, 9, 10]. The helical 
-segments on the barrel ends shield the chromophore from the solvent [10]. GFP has found many applications in biotechnology due to its valuable properties, such as posttranslational autocatalytic chromophore formation without requirement of substractes, its ability to serve as a fusion partner, and low sensitivity to enironmental factors [10, 11, 14]. Therefore, it is also a good model for the adaptive landscapes as its fitness can be directly quantified by measuring its fluorescence [4, 5, 11].
+segments on the barrel ends shield the chromophore from the solvent [10]. GFP has found many applications in biotechnology due to its valuable properties, such as posttranslational autocatalytic chromophore formation without requirement of substractes, its ability to serve as a fusion partner, and low sensitivity to enironmental factors [10, 11, 15]. Therefore, it is also a good model for the adaptive landscapes as its fitness can be directly quantified by measuring its fluorescence [4, 5, 11].
 
 
-Four extant GFPs (avGFP (Aequorea victoria, Hydrozoa), amacGFP (Aequorea macrodactyla, Hydrozoa), cgreGFP (Clytia gregaria, Hydrozoa), and ppluGPF2 (Pontellina plumata, Copepoda)) with different sequence identities ranging from 17 % till 82 % have been explored by deep mutational scanning
+Four extant GFPs (avGFP (Aequorea victoria, Hydrozoa), amacGFP (Aequorea macrodactyla, Hydrozoa), cgreGFP (Clytia gregaria, Hydrozoa), and ppluGPF2 (Pontellina plumata, Copepoda)) sharing different degrees of sequence identity (17% to 82%) have been explored by deep mutational scanning
 and used for building a predictive neural network [4, 11].  For each protein a library of random mutants was generated and labelled with
 a random combination of nucleotides (barcodes) using error-prone PCR. Each library was sorted according to the intensity of green
 fluorescence and sequenced by HTS using barcodes. Finally, statistical analysis of all four fitness peaks was performed and the data was
@@ -96,8 +96,7 @@ The mutational robustness of a protein can be correlated to its physiochemical s
 ## Testing <a name="testing"></a>
 <div style="text-align: justify">
 
-In order to test the hypothesis, 16 fluorescing cgreGFP variants were predicted at
-differing distance from the wild-type (WT) cgreGFP sequence. Two different sequences were
+In order to test the hypothesis, we examined 16 fluorescing cgreGFP variants at different distances from wild-type (WT) cgreGFP which had been previously predicted to be functional by a neural net trained on the cgreGFP mutant library. Two different sequences were
 predicted at each distance of 6 to 48 mutations with increments of 6 mutations. For each
 protein, mutational stability was estimated by generating mutant libraries and sorting the
 cells based on the intensity of green fluorescence. The structural stability was estimated by
@@ -120,7 +119,7 @@ each variant (see [data](https://github.com/AnnaToi01/GFP_Robustness/tree/main/A
 
 
 Coding sequences for neural network-generated cgreGFP variants with N-terminal
-His-tags and flanked by BsaI restriction sites were cloned into T7 expression vectors with KanR via modular cloning strategy, MoClo. DH5α *E. coli* cells were transformed with MoClo reaction mixture via heat shock and grown on LB agar supplemented with 50 µg/mL kanamycin and 20 µM IPTG. From each plate two colonies were screened for possible errors during MoClo by polymerase chain reaction (PCR) as well as sequencing. One colony was chosen for further investigation. Plasmid was extracted from liquid cultures of one selected colony and chemically competent BL21-DE3 (New England Biolabs) cells were transformed and grown on ten 12 × 12 cm LB agar 50 µg/mL kanamycin and 20 µM IPTG plates. The cells were sonicated and proteins were isolated using nickel-sepharose protein purification resin (Cytiva). The concentrations of the isolated proteins were determined using Nanopore and Bradford assay using Pierce Coomassie Protein Assay Kit (ThermoFisher) (see [Bradford assay data analysis](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Bradford_protein_concentrations)). The quality was further assessed using SDS-PAGE and Western Blotting.
+His-tags and flanked by BsaI restriction sites were cloned into T7 expression vectors with KanR via modular cloning strategy, MoClo. DH5α *E. coli* cells were transformed with MoClo reaction mixture via heat shock and grown on LB agar supplemented with 50 µg/mL kanamycin. From each plate two colonies were screened for possible screened for correct construct insertion by polymerase chain reaction (PCR) as well as sequencing. One colony was chosen for further investigation. Plasmid was extracted from liquid cultures of one selected colony and chemically competent BL21-DE3 (New England Biolabs) cells were transformed and grown on ten 12 × 12 cm LB agar 50 µg/mL kanamycin and 20 µM IPTG plates. The cells were sonicated and proteins were isolated using nickel-sepharose protein purification resin (Cytiva). The concentrations of the isolated proteins were determined using Nanopore and Bradford assay using Pierce Coomassie Protein Assay Kit (ThermoFisher) (see [Bradford assay data analysis](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Bradford_protein_concentrations)). The quality was further assessed using SDS-PAGE and Western Blotting.
 
 ## Urea sensitivity assays <a name="methods_urea"></a>
 
@@ -146,10 +145,9 @@ the peaks of the melting curves averaged over all replicates. See [data and its 
 
 ## Mutational robustness <a name="mut_rob"></a>
 
-16 cgreGFPs along with the WT cgreGFP were sorted using FACS based on green fluo-
+Mutant libraries containing thousands of variants of the 16 cgreGFPs along with the WT cgreGFP were sorted using FACS based on green fluo-
 rescence intensity ([provided dataset](https://github.com/AnnaToi01/GFP_Robustness/tree/main/Abs_Fluor_analysis/Mut_robustness/data)). In order to visualize the mutational
-robustness of the variants, the sequence divergence from the original sequence (number of
-mutations) were plotted against the median measured brightness. The steepness of the descent of the curve, thus
+robustness of the variants, the median measured brightness of mutant variants was plotted as a function of their divergence from the original sequence (number of mutations). The steepness of the descent of the curve, thus
 the sharpness of the fitness peak, directly correlates with mutational robustness, as more
 fragile proteins lose their functionality quicker as distance from the fitness peak increases. Using custom python script, different functions were fitted to the plot of the number of mutations against the mean brightness. Sigmoid function fitted best, so through its inverse function the number of the mutations needed to reach half of the initial measured brightness was taken as a measure for the mutational robustness of the protein. See [Jupyter notebook](https://github.com/AnnaToi01/GFP_Robustness/blob/main/Abs_Fluor_analysis/Mut_robustness/Mut_robustness.ipynb).
 
@@ -189,7 +187,7 @@ pretrained parameters and the inverse sigmoid function. See <a href="https://git
 
 ## Thermosensitivity Assays <a name="dis_thermo"></a>
 
-The melting temperature of the proteins was taken as the peak of the derivative of the melting curve. As the urea concentration increases, melting temperatures decreases. As the urea concentration increases, melting temperatures decrease. Therefore, the destabilizing effects of heat and chaotropic agent on protein stability are cumulative. 
+The melting temperature of the proteins was taken as the peak of the derivative of the melting curve. As the urea concentration increases, melting temperatures decreases. Therefore, the destabilizing effects of heat and chaotropic agent on protein stability are cumulative. 
 
 The correlation between mutational robustness and thermostability decreases and the p-values increase with increasing urea concentration. Therefore, the melting temperatures measured in 1 × PBS have the highest correlation with the mutational robustness. This could be explained by the possibility that the simultaneous exposure to heat and the chaotropic agent disrupts the protein stability in many different, nonlinear
 ways.
@@ -364,11 +362,14 @@ Nature 533.7603 (2016), pp. 397–401. issn: 1476-4687. doi: 10.1038/nature17995
 11. Roger Y. Tsien. “THE GREEN FLUORESCENT PROTEIN”. In: Annu. Rev. Biochem.
 67.1 (June 1998), pp. 509–544. issn: 0066-4154. doi: 10.1146/annurev.biochem.67.
 1.509.
-12. J. Arjan G. M. de Visser and Joachim Krug. “Empirical fitness landscapes and the
+12. Jeremy Van Cleve and Daniel B. Weissman. “Measuring ruggedness in fitness land-
+scapes”. In: Proceedings of the National Academy of Sciences 112.24 (June 2015),
+pp. 7345–7346. doi: 10.1073/pnas.1507916112.
+13. J. Arjan G. M. de Visser and Joachim Krug. “Empirical fitness landscapes and the
 predictability of evolution”. In: Nature Reviews Genetics 15.7 (2014), pp. 480–490.
 issn: 1471-0064. doi: 10.1038/nrg3744.
-13. S. Wright. “The Roles of Mutation, Inbreeding, crossbreeding and Selection in Evolu-
+14. S. Wright. “The Roles of Mutation, Inbreeding, crossbreeding and Selection in Evolu-
 tion”. In: Proceedings of the XI International Congress of Genetics 8 (1932), pp. 209–222.
-14. Marc Zimmer. “Green Fluorescent Protein (GFP): Applications, Structure, and Re-
+15. Marc Zimmer. “Green Fluorescent Protein (GFP): Applications, Structure, and Re-
 lated Photophysical Behavior”. In: Chem. Rev. 102.3 (Mar. 2002), pp. 759–782. issn:
 0009-2665. doi: 10.1021/cr010142r.
